@@ -1,0 +1,76 @@
+/* DOT vizgraph file with an AST-forest of the parsed SQL statements. */
+/* To generate a .PNG image of the AST, run: */
+/* dot -Tpng <thisFile> -o <outputFile.png> */
+
+digraph {
+  rankdir=LR;
+  root [style=invisible];
+  n1 [shape=box,label="USE"];
+  n2 [shape=box,label="myDatabase"];
+  n3 [shape=box,label="SELECT"];
+  n4 [shape=box,label="[]"];
+  n5 [shape=box,label="id"];
+  n6 [shape=box,label="name"];
+  n7 [shape=box,label="code"];
+  n8 [shape=box,label="TableId"];
+  n9 [shape=box,label="snippets"];
+  n11 [shape=box,label="is_java"];
+  n10 [shape=ellipse,label="IS NOT NULL"];
+  n12 [shape=box,label="creation_date"];
+  n13 [shape=box,label="INSERT"];
+  n14 [shape=box,label="TableId"];
+  n15 [shape=box,label="snippets"];
+  n16 [shape=box,label="[]"];
+  n17 [shape=box,label="id"];
+  n18 [shape=box,label="name"];
+  n19 [shape=box,label="code"];
+  n20 [shape=box,label="creation_date"];
+  n21 [shape=box,label="[]"];
+  n22 [shape=ellipse,label="42"];
+  n23 [shape=ellipse,label="58"];
+  n24 [shape=box,label="\"print\\\"hello, world\\\"\""];
+  n25 [shape=ellipse,label="NOW"];
+  n26 [shape=box,label="[]"];
+  n27 [shape=box,label="DELETE"];
+  n28 [shape=box,label="TableId"];
+  n29 [shape=box,label="db"];
+  n30 [shape=box,label="snippets"];
+  n32 [shape=box,label="id"];
+  n33 [shape=ellipse,label="12345"];
+  n31 [shape=circle,label=">"];
+  n1 -> n2[label="databaseName"];
+  n4 -> n5[label="0"];
+  n4 -> n6[label="1"];
+  n4 -> n7[label="2"];
+  n3 -> n4[label="selectList"];
+  n8 -> n9[label="table"];
+  n3 -> n8[label="from"];
+  n10 -> n11[label=""];
+  n3 -> n10[label="where"];
+  n3 -> n12[label="orderBy"];
+  n14 -> n15[label="table"];
+  n13 -> n14[label="into"];
+  n16 -> n17[label="0"];
+  n16 -> n18[label="1"];
+  n16 -> n19[label="2"];
+  n16 -> n20[label="3"];
+  n13 -> n16[label="columns"];
+  n21 -> n22[label="0"];
+  n21 -> n23[label="1"];
+  n21 -> n24[label="2"];
+  n25 -> n26[label="args"];
+  n21 -> n25[label="3"];
+  n13 -> n21[label="values"];
+  n28 -> n29[label="database"];
+  n28 -> n30[label="table"];
+  n27 -> n28[label="from"];
+  n31 -> n32[label="first"];
+  n31 -> n33[label="second"];
+  n27 -> n31[label="where"];
+  {
+    rank = same;
+    root -> n1 -> n3 -> n13 -> n27 [style=invis];
+    rankdir=TB;
+  }
+}
+
