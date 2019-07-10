@@ -110,4 +110,3 @@ This will generate the javadoc in `target/site/apidocs/index.html`:
 
     mvn javadoc:javadoc
 
- `index.html`
